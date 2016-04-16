@@ -10,6 +10,20 @@ class ApplicationController < ActionController::Base
   def current_user
     User.where(id: session[:user_id]).first
   end
+
+## authorize user; it prevents to enter restricted page as like as admin page.
+## How to use of this funciton
+## example: from a controller ,think a controller has admin page, 
+## you want to restricted this page until you log in correctly
+## Just use this in your controller page :
+
+## before_action :authorized?, except: :index
+  def authorized?
+  	if current_user.nil?
+  	redirect_to login_path, alert: "Not authorized! Please log in."
+    end
+  end
   # use this method in everywhere.
   helper_method :current_user
+  helper_method :authorized?
 end
