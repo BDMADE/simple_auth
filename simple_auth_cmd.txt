@@ -1,1 +1,2 @@
 1. rails g controller Home index admin
+2. rails g scaffold User first_name last_name email password:digest
