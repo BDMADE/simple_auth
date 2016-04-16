@@ -23,7 +23,15 @@ class ApplicationController < ActionController::Base
   	redirect_to login_path, alert: "Not authorized! Please log in."
     end
   end
+
+## check in system- is it admin ?
+
+def admin?  
+current_user.role_id  == 1
+end
+
   # use this method in everywhere.
   helper_method :current_user
   helper_method :authorized?
+  helper_method :admin?
 end
