@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
   # login form
   def new
+    if current_user.nil?
+     render :new
+    else
+      redirect_to root_url,notice: 'You are already logged in !'
+ 
+    end
   end
 
 # action of login form
@@ -13,6 +19,9 @@ class SessionsController < ApplicationController
       redirect_to new_session_path,notice: 'Authentication failed !'
     end
   end
+
+
+  
 
 # action of logout form
   def destroy

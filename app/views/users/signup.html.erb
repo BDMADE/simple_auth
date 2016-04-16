@@ -1,0 +1,46 @@
+<% if @user.errors.any? %>
+    <center>
+    <div id="error_explanation">
+      <h5><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h5>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    </center>
+  <% end %>
+
+
+<div class="container">
+
+      <%= form_for @user,html: {class: "form-signin"} do |f| %>
+
+        <h2 class="form-signin-heading">Sign Up</h2>
+        <div class="login-wrap">
+            <div class="user-login-info">
+              <%= f.label :first_name %><br>
+              <%= f.text_field :first_name,class: 'form-control' %>
+              <%= f.label :last_name %><br>
+              <%= f.text_field :last_name,class: 'form-control' %>
+              <%= f.label :email %><br>
+              <%= f.text_field :email,class: 'form-control' %>
+              <%= f.label :password %><br>
+              <%= f.password_field :password,class: 'form-control' %>
+              <%= f.label :password_confirmation %><br>
+              <%= f.password_field :password_confirmation,class: 'form-control' %>              
+              <%= f.hidden_field :role_id,value: '2' %>
+            </div>
+            <%= f.submit 'Registration',class: 'btn btn-login btn-block' %>
+            
+
+            <div class="registration">Already Registered. <%= link_to 'Sign In',login_path %></div>
+
+        </div>
+
+          
+      <% end %>
+
+    </div>
+

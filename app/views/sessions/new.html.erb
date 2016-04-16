@@ -1,16 +1,39 @@
 <p id="alert"><%= alert %></p>
 
-<h1>Log In</h1>
-<%= form_tag sessions_path do %>
-<div class="field">
-<%= label_tag :email %><br>
-<%= text_field_tag :email %>
-</div>
-  <div class="field">
-    <%= label_tag :password %><br>
-<%= password_field_tag :password %>
-</div>
-  <div class="actions">
-    <%= submit_tag "Log In" %>
-</div>
-<% end %>
+
+
+<body class="login-body">
+
+    <div class="container">
+
+      <%= form_tag sessions_path,:class=>'form-signin' do %>
+
+        <h2 class="form-signin-heading">Rails administration</h2>
+        <div class="login-wrap">
+            <div class="user-login-info">
+                <%= label_tag :email %><br>
+                <%= text_field_tag :email,'',class: 'form-control' %>
+                <%= label_tag :password %><br>
+                <%= password_field_tag :password,'',class: 'form-control' %>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me">Remember me</input>
+            </label>
+            
+            <%= submit_tag "Log In",class: 'btn btn-login btn-block'  %>
+
+            <div class="registration">Don't have an account yet? <%= link_to 'Registration',signup_path %></div>
+
+        </div>
+
+          
+      <% end %>
+
+    </div>
+
+
+
+    
+
+    
+  </body>

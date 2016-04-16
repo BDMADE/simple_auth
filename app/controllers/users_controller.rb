@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorized?, except: [:signup,:create]
 
   # GET /users
   # GET /users.json
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { session[:user_id] = @user.id
-                      redirect_to root_url, notice: 'User was successfully created.' }
+                      redirect_to root_url, notice: 'An user was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -62,6 +63,16 @@ class UsersController < ApplicationController
     end
   end
 
+
+  # sign up page
+  def signup
+    if current_user.nil?
+      @user = User.new
+    else
+      redirect_to root_url ,notice: "Already signed in !"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -70,6 +81,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,:role_id)
     end
 end
