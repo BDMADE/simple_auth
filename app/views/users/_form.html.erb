@@ -31,6 +31,13 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
+
+<div class='field'>
+      <%= f.label :role_id %><br />
+      <%= f.collection_select :role_id,Role.all,:id, :name, prompt: true %>
+  </div>
+</br>
+
   <div class="actions">
     <%= f.submit %>
   </div>

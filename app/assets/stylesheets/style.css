@@ -4068,7 +4068,7 @@ tr.odd.gradeX td.sorting_1,tr.even.gradeX td.sorting_1,table.display tr.even.gra
     width:100%;
 }
 .full-width .nav>li>a:hover,.full-width .nav li.active a,.full-width .nav li.dropdown a:hover,.full-width .nav li.dropdown.open a:focus,.full-width .nav .open>a,.full-width .nav .open>a:hover,.full-width .nav .open>a:focus {
-    background-color:#1FB5AD;
+    background-color:#F56C6C;
     text-decoration:none;
     color:#fff;
     transition:all 0.3s ease 0s;
