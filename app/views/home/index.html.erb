@@ -1,4 +1,27 @@
-<p id="notice"><%= notice %></p>
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!--This parital will show sign in and sign up link in navigation bar in home page-->
+<%= content_for :nav do %>
+
+<% if current_user %>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="#">Logged in as <b><%= current_user.first_name %></b>&nbsp;<b><%= current_user.last_name %></b></a></li>
+ <li><%= link_to "Admin", admin_path %></li>
+ <li><%= link_to "Log Out", logout_path %></li>
+ </ul>
+ <% else %>
+ <ul class="nav navbar-nav navbar-right">
+ <li><%= link_to "Sign In", login_path %></li>
+ <li><%= link_to "Sign Up", signup_path %></li>
+ </ul>
+ <% end %>
+
+<% end %>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Simple Authentication</h1>      
+    <p>This application is <strong>Ruby on Rails</strong> based authentication and authorized system for staring a project.</p>
+  </div>
+  
+</div>
 
