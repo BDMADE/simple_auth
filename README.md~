@@ -19,4 +19,6 @@
 <p><code>current_user</code>: It will render current user (logged in user) information.</p>
 <p><code>authorized?</code>: This method will check that user is logged or not.</p>
 <p><code>admin?</code>: This method render a boolean that current user is admin or not.</p>
-<p><code>is_not_admin?</code>: This method will check that current user is admin or no.If current user is not admin,this method prevents normal user(staff) to access administration section and redirect to home page</p>
+<p><code>is_not_admin?</code>: This method will check that current user is admin or not.If current user is not admin,this method prevents normal user(staff) to access administration section and redirect to home page</p>
+
+<p><code>match_user</code>: This method is a private method and it is located in UsersController private section.It match current user with admin user and it prevent to  normal user to edit other user information.</p>

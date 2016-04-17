@@ -1,6 +1,6 @@
 # simple_auth
 
-<h2>This is an rails4 based application which is challange to devise and cancan gem.</h2>
+<p>This application is <strong>Ruby on Rails</strong> based authentication and authorized system for staring a project.</p>
 
 <h3>How to Install</h3>
 
