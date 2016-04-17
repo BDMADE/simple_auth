@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :match_user,only: :edit
   before_action :authorized?, except: [:signup,:create]
+  before_action :admin?, except: [:signup,:create]
+  before_action :is_not_admin?, except: [:signup,:create,:edit,:show,:update]
+
+  layout 'adminLayout', except: :signup
+
 
   # GET /users
   # GET /users.json
@@ -78,6 +84,16 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+  # it matches current user with database and prevents to edit/update other user profile
+  def match_user
+  user= User.find(current_user)
+
+  if not user.id==set_user.id
+    redirect_to admin_url,notice: 'You have not permission to grant this page !'
+  end
+
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

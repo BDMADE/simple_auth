@@ -27,11 +27,20 @@ class ApplicationController < ActionController::Base
 ## check in system- is it admin ?
 
 def admin?  
-current_user.role_id  == 1
+current_user.role_id == 1
 end
+
+# set permission for admin,page will not be seen without admin.
+def is_not_admin?
+  if not admin?
+     redirect_to root_path, notice: "You have not permission to grant this page !"
+  end
+end
+
 
   # use this method in everywhere.
   helper_method :current_user
   helper_method :authorized?
   helper_method :admin?
+  helper_method :is_not_admin?
 end

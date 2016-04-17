@@ -1,5 +1,9 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
+  before_action :authorized?
+  #before_action :is_not_admin?
+  layout 'adminLayout'
+
 
   # GET /roles
   # GET /roles.json
@@ -66,6 +70,10 @@ class RolesController < ApplicationController
     def set_role
       @role = Role.find(params[:id])
     end
+
+    
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params

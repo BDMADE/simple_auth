@@ -14,7 +14,13 @@ class SessionsController < ApplicationController
    user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      # only admin can enter this page
+      if admin?
       redirect_to admin_url, notice: 'Logged in!'
+      else
+        redirect_to root_url, notice: 'Logged in!'
+      end
+
     else
       redirect_to new_session_path,notice: 'Authentication failed !'
     end
