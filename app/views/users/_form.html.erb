@@ -1,5 +1,6 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2">
+<% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -10,35 +11,85 @@
       </ul>
     </div>
   <% end %>
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+<div class="col-lg-8 col-lg-offset-2">
+                <section class="panel">
+                    <header class="panel-heading">
+                         User Forms
+                    </header>
+                    <div class="panel-body">
+                        <div class="position-center">
+                            
+                            <%= form_for @user,html:{class: 'form-horizontal'} do |f| %>
+                            
+                            <div class="form-group">
+                                
+                                <%= f.label :first_name,class: 'col-lg-3 col-sm-4 control-label' %>
+                                <div class="col-lg-9 col-sm-8">
+                                 <%= f.text_field :first_name,class: 'form-control' %>   
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                
+                                <%= f.label :last_name,class: 'col-lg-3 col-sm-4 control-label' %>
+                                <div class="col-lg-9 col-sm-8">
+                                 <%= f.text_field :last_name,class: 'form-control' %>   
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                
+                                <%= f.label :email,class: 'col-lg-3 col-sm-4 control-label' %>
+                                <div class="col-lg-9 col-sm-8">
+                                 <%= f.text_field :email,class: 'form-control' %>   
+                                    
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                
+                                <%= f.label :password,class: 'col-lg-3 col-sm-4 control-label' %>
+                                <div class="col-lg-9 col-sm-8">
+                                 <%= f.password_field :password,class: 'form-control' %>   
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                
+                                <%= f.label :password_confirmation,class: 'col-lg-3 col-sm-4 control-label' %>
+                                <div class="col-lg-9 col-sm-8">
+                                 <%= f.password_field :password_confirmation,class: 'form-control' %>   
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                
+                                <%= f.label :role_id,class: 'col-lg-3 col-sm-4 control-label' %>
+                                <div class="col-lg-9 col-sm-8">
+                                 <%= f.collection_select :role_id,Role.all,:id, :name, {prompt: true},{class:'form-control'} %>   
+                                    
+                                </div>
+                            </div>
+                            
 
-<div class='field'>
-      <%= f.label :role_id %><br />
-      <%= f.collection_select :role_id,Role.all,:id, :name, prompt: true %>
-  </div>
-</br>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-10">
+                                    <%= f.submit 'Submit',class:'btn btn-success',name:'user_new' %>
+                                    <%= link_to 'Back', users_path,class:'btn btn-info' %>
+                                </div>
+                            </div>
+                        <% end %>
+                        </div>
+                    </div>
+                </section>
+
+            </div>

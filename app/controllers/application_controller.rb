@@ -33,7 +33,7 @@ end
 # set permission for admin,page will not be seen without admin.
 def is_not_admin?
   if not admin?
-     redirect_to root_path, notice: "You have not permission to grant this page !"
+     redirect_to root_path, notice: "You do not have any permission to grant this page !"
   end
 end
 

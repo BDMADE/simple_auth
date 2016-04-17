@@ -1,4 +1,15 @@
-<p>
+<div class="row">
+<div class="col-md-6 col-md-offset-3 col-sm-6 col-lg-6 col-md-offset-3">
+                <section class="panel">
+                    
+                    <header class="panel-heading">
+                        View User Information
+                    </header>
+                    
+                    <div class="panel-body">
+                        
+                        <div class="position-center">
+                          <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
 </p>
@@ -13,5 +24,15 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', admin_path %>
+<%= link_to 'Edit', edit_user_path(@user),class:'btn btn-info' %> |
+<%= link_to 'Back', admin_path,class: 'btn btn-danger' %>
+  
+                            
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+</div>

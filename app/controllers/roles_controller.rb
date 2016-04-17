@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
   before_action :authorized?
-  #before_action :is_not_admin?
+  before_action :is_not_admin?
   layout 'adminLayout'
 
 
