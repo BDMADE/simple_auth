@@ -1,3 +1,21 @@
 1. rails g controller Home index admin
-2. rails g scaffold User first_name last_name email password:digest
-3. rails g controller sessions new create destroy
+2. rails g scaffold Role name
+3. rails g scaffold User first_name last_name email password:digest remember_created_at:datetime:null role:references
+4. rails g controller sessions new create destroy
+
+
+procedure:
+1.myrails
+2.cd simple_auth
+3.gem bcrypt -- bundle update
+4. command
+
+
+5. route file change
+6. assets - css: delete scaffold.scss, add bootstrap-reset.css ,style.css
+7. assets -javascript: add jquery.dcjqaccordion.2.7.js,change application.js: comment turbo.js
+8. all controller change
+9. all views update
+10.seed.rb updated
+11.git init,git add -A,git commit -m "Simple_auth is created successfully."
+ 

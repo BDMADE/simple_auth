@@ -44,3 +44,4 @@ end
   helper_method :admin?
   helper_method :is_not_admin?
 end
+
